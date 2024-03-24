@@ -3,7 +3,7 @@ import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
 import * as pmtiles from 'pmtiles'
 import { useEffect, useState } from 'react'
-import { Map, type ViewStateChangeEvent } from 'react-map-gl/maplibre'
+import {Layer, Map, Source, type ViewStateChangeEvent} from 'react-map-gl/maplibre'
 import {
   $clickedMapData,
   $mapLoaded,
@@ -14,6 +14,7 @@ import {
   type SearchParamBaseMap,
 } from './store'
 import { roundPositionForURL } from './utils/roundNumber'
+import * as Immutable from "immutable";
 
 type Props = {
   initialViewState: MapSearchParam
@@ -56,6 +57,8 @@ export const BaseMap = ({ initialViewState, interactiveLayerIds, boxZoom, childr
 
   const latLngZoom = paramMapParse(params.map)
 
+  const rasterAttribution='Data: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, <a href="http://viewfinderpanoramas.org/">SRTM</a>, <a href="https://portal.opentopography.org/datasetMetadata?otCollectionID=OT.032021.4326.2">NASADEM</a>, <a href="https://worldcover2021.esa.int">ESA WorldCover</a>; Maps © <a href="https://www.tracestrack.com/">Tracestrack</a>'
+
   return (
     <Map
       initialViewState={{
@@ -65,7 +68,7 @@ export const BaseMap = ({ initialViewState, interactiveLayerIds, boxZoom, childr
         longitude: latLngZoom.longitude || initialViewState.longitude,
       }}
       // Style: https://cloud.maptiler.com/maps/dataviz/
-      mapStyle="https://api.maptiler.com/maps/dataviz/style.json?key=0opClOQz7xpg46NzNSOo"
+      // mapStyle="https://api.maptiler.com/maps/dataviz/style.json?key=0opClOQz7xpg46NzNSOo"
       style={{ width: '100%', height: '100%' }}
       boxZoom={boxZoom || true}
       // hash
@@ -80,6 +83,16 @@ export const BaseMap = ({ initialViewState, interactiveLayerIds, boxZoom, childr
       onMouseLeave={() => setCursorStyle('grab')}
       onClick={(event) => $clickedMapData.set(event.features)}
     >
+      <Source
+          type="raster"
+          tiles={['https://maps.lw1.at/tiles/1.0.0/tracestack/webmercator_hq/{z}/{x}/{y}.png']}
+          tileSize={512}
+          attribution={rasterAttribution}
+      >
+        <Layer type="raster"></Layer>
+
+      </Source>
+
       {children}
     </Map>
   )

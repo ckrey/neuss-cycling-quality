@@ -93,6 +93,10 @@ export const MapInspector = () => {
                   })}
               </tbody>
             </table>
+              <details>
+                  <summary className="text-lg">Rohdaten</summary>
+                  <pre>{JSON.stringify(feature.properties, null, 2)}</pre>
+              </details>
           </div>
         )
       })}

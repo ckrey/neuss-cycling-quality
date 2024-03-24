@@ -8,6 +8,7 @@ import { validAnzeigeValues, type SearchParamsCqiMap } from './storeCqi'
 import { interactiveLayerIdsByGroup } from './layers/layers'
 import { Overlay } from './Overlay'
 import {BaseMap} from "../BaseMap/BaseMap.tsx";
+import {MapInfo} from "./MapInfo.tsx";
 
 type Props = {
   maxBounds: MapSearchParam['maxBounds']
@@ -40,6 +41,7 @@ export const CqiMap = ({ maxBounds, minZoom, maxZoom }: Props) => {
       <MapSourceCqi />
       <NavigationControl showCompass={false} position="top-right" />
       <MapInspector />
+      <MapInfo />
       <Overlay />
     </BaseMap>
   )

@@ -5,27 +5,26 @@ import { Layer, Source } from 'react-map-gl/maplibre'
 import { wrapFilterWithAll } from '../BaseMap/utils/wrapFilterWithAll'
 import { layerByGroups, layersSelected } from './layers/layers'
 import { $focus, type SearchParamsCqiMap } from './storeCqi'
-import {useMap} from "react-map-gl";
-
+import {default as dataTiles}  from "../assets/data.pmtiles";
 export const MapSourceCqi = () => {
   const params = useStore($searchParams) as SearchParamsCqiMap
   const focus = useStore($focus)
   const mapData = useStore($clickedMapData)
   const mapDataIds = mapData?.map((feature) => feature.properties?.id) ?? []
 
-  // Debugging:
-  console.log(mapDataIds)
-  const map = useMap()
-  console.log(map.current?.getStyle())
+  // // Debugging:
+  // console.log(mapDataIds)
+  // const map = useMap()
+  // console.log(map.current?.getStyle())
 
   const focusFilter = focus ? ['match', ['get', focus.key], focus.values, true, false] : null
-
+  const pmtilesUrl = "pmtiles://" + dataTiles
   return (
     <Source
       id="cqi"
       type="vector"
       // url="pmtiles://https://atlas-tiles.s3.eu-central-1.amazonaws.com/cycling_quality_index.pmtiles"
-      url="pmtiles://http://localhost:5174/src/assets/out.pmtiles"
+      url={pmtilesUrl}
       attribution="© OpenStreetMap"
     >
       {layersSelected.map((layer) => {
