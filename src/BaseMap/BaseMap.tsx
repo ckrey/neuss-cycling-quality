@@ -8,8 +8,6 @@ import {
   $clickedMapData,
   $mapLoaded,
   $searchParams,
-  paramMapParse,
-  paramMapStringify,
   type MapSearchParam,
   type SearchParamBaseMap,
 } from './store'
@@ -37,7 +35,7 @@ export const BaseMap = ({ initialViewState, interactiveLayerIds, boxZoom, childr
 
   const setParamsMap = ({ latitude, longitude, zoom }: MapSearchParam) => {
     const mapParamsRounded = roundPositionForURL({ latitude, longitude, zoom })
-    const mapParamString = paramMapStringify(mapParamsRounded)
+    // const mapParamString = paramMapStringify(mapParamsRounded)
     const replaceHistory = true
       $searchParams.open({
           ...params,
@@ -55,7 +53,7 @@ export const BaseMap = ({ initialViewState, interactiveLayerIds, boxZoom, childr
 
   // Set ?map to `initialViewState` if no `map` present, yet
   useEffect(() => {
-    if (params.zoom) return
+    if (params.zoom && params.lat && params.lon) return
     setParamsMap(initialViewState)
   }, [])
 
@@ -67,9 +65,9 @@ export const BaseMap = ({ initialViewState, interactiveLayerIds, boxZoom, childr
     <Map
       initialViewState={{
         ...initialViewState,
-        zoom: latLngZoom.zoom || initialViewState.zoom,
-        latitude: latLngZoom.lat || initialViewState.latitude,
-        longitude: latLngZoom.lon || initialViewState.longitude,
+        zoom: Number(latLngZoom.zoom) || initialViewState.zoom,
+        latitude: Number(latLngZoom.lat) || initialViewState.latitude,
+        longitude: Number(latLngZoom.lon) || initialViewState.longitude,
       }}
       // Style: https://cloud.maptiler.com/maps/dataviz/
       // mapStyle="https://api.maptiler.com/maps/dataviz/style.json?key=0opClOQz7xpg46NzNSOo"

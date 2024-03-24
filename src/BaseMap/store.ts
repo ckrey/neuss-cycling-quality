@@ -6,9 +6,9 @@ export const $mapLoaded = atom(false)
 export const $clickedMapData = atom<MapGeoJSONFeature[] | undefined>(undefined)
 
 export type SearchParamBaseMap = {
-  zoom: number
-  lat: number
-  lon: number
+  zoom: string
+  lat: string
+  lon: string
 }
 export type MapSearchParam = {
   longitude: number
