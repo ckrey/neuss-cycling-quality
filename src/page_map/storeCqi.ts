@@ -9,7 +9,7 @@ export const validAnzeigeValues = [
 ] as const
 
 export type SearchParamsCqiMap = SearchParamBaseMap & {
-  anzeige: (typeof validAnzeigeValues)[number]
+  mode: (typeof validAnzeigeValues)[number]
 }
 
 export const $focus = atom<null | FilterConfig>(null)

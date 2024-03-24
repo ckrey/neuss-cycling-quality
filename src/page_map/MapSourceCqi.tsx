@@ -50,7 +50,7 @@ export const MapSourceCqi = () => {
 
       {Object.entries(layerByGroups).map(([groupkey, groupLayers]) => {
         return groupLayers.map((layer) => {
-          const visible = params?.anzeige === groupkey
+          const visible = params?.mode === groupkey
 
           return (
             <Layer

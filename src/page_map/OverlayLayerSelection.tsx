@@ -9,20 +9,20 @@ import { $focus, type SearchParamsCqiMap } from './storeCqi'
 export const OverlayLayerSelection = () => {
   const params = useStore($searchParams)
   // TODO: I really don't get why we need this but something prevents the rerendering of the buttons so the active state is wrong. Did not find any AstroJS Docs on this. And we are doing what we are supposed to do with nanostores.
-  const [localSelected, setLocalSelected] = useState<SearchParamsCqiMap['anzeige']>('cqi')
+  const [localSelected, setLocalSelected] = useState<SearchParamsCqiMap['mode']>('cqi')
 
   const setSelected = (value: string) => {
-    $searchParams.open({ ...params, ...{ anzeige: value } })
+    $searchParams.open({ ...params, ...{ mode: value } })
     $focus.set(null)
-    setLocalSelected(value as SearchParamsCqiMap['anzeige'])
+    setLocalSelected(value as SearchParamsCqiMap['mode'])
   }
 
   // Initialize URL with filter=none
   useEffect(() => {
-    setSelected(params.anzeige || 'cqi')
+    setSelected(params.mode || 'cqi')
   }, [])
 
-  const handleChange = (value: SearchParamsCqiMap['anzeige']) => {
+  const handleChange = (value: SearchParamsCqiMap['mode']) => {
     setSelected(value)
   }
 

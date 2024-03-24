@@ -14,7 +14,6 @@ import {
   type SearchParamBaseMap,
 } from './store'
 import { roundPositionForURL } from './utils/roundNumber'
-import * as Immutable from "immutable";
 
 type Props = {
   initialViewState: MapSearchParam
@@ -40,7 +39,12 @@ export const BaseMap = ({ initialViewState, interactiveLayerIds, boxZoom, childr
     const mapParamsRounded = roundPositionForURL({ latitude, longitude, zoom })
     const mapParamString = paramMapStringify(mapParamsRounded)
     const replaceHistory = true
-    $searchParams.open({ ...params, map: mapParamString }, replaceHistory)
+      $searchParams.open({
+          ...params,
+          zoom: mapParamsRounded.zoom,
+          lat: mapParamsRounded.latitude,
+          lon: mapParamsRounded.longitude
+      }, replaceHistory)
   }
 
   // Update ?map on zoom or pan of map
@@ -51,11 +55,11 @@ export const BaseMap = ({ initialViewState, interactiveLayerIds, boxZoom, childr
 
   // Set ?map to `initialViewState` if no `map` present, yet
   useEffect(() => {
-    if (params.map) return
+    if (params.zoom) return
     setParamsMap(initialViewState)
   }, [])
 
-  const latLngZoom = paramMapParse(params.map)
+  const latLngZoom = params
 
   const rasterAttribution='Data: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, <a href="http://viewfinderpanoramas.org/">SRTM</a>, <a href="https://portal.opentopography.org/datasetMetadata?otCollectionID=OT.032021.4326.2">NASADEM</a>, <a href="https://worldcover2021.esa.int">ESA WorldCover</a>; Maps © <a href="https://www.tracestrack.com/">Tracestrack</a>'
 
@@ -64,8 +68,8 @@ export const BaseMap = ({ initialViewState, interactiveLayerIds, boxZoom, childr
       initialViewState={{
         ...initialViewState,
         zoom: latLngZoom.zoom || initialViewState.zoom,
-        latitude: latLngZoom.latitude || initialViewState.latitude,
-        longitude: latLngZoom.longitude || initialViewState.longitude,
+        latitude: latLngZoom.lat || initialViewState.latitude,
+        longitude: latLngZoom.lon || initialViewState.longitude,
       }}
       // Style: https://cloud.maptiler.com/maps/dataviz/
       // mapStyle="https://api.maptiler.com/maps/dataviz/style.json?key=0opClOQz7xpg46NzNSOo"

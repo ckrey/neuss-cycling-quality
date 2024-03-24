@@ -14,7 +14,6 @@
     "@nanostores/react": "^0.7.2",
     "@nanostores/router": "^0.13.0",
     "@turf/turf": "^7.0.0-alpha.114",
-    "immutable": "^5.0.0-beta.5",
     "maplibre-gl": "^4.1.1",
     "pmtiles": "^3.0.5",
     "react": "^18.2.0",

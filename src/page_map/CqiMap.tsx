@@ -20,23 +20,23 @@ export const CqiMap = ({ maxBounds, minZoom, maxZoom }: Props) => {
   const params = useStore($searchParams) as SearchParamsCqiMap
 
   // Guard against invalid "anzeige" param values
-  if (!validAnzeigeValues.includes(params.anzeige)) {
-    $searchParams.open({ ...params, ...{ anzeige: 'cqi' } })
+  if (!validAnzeigeValues.includes(params.mode)) {
+    $searchParams.open({ ...params, ...{ mode: 'cqi' } })
   }
 
   return (
     <BaseMap
       initialViewState={{
-        longitude: 16.18278,
-        latitude: 48.11833,
-        zoom: 12,
+        longitude: 16.37027,
+        latitude: 48.20974,
+        zoom: 11,
         // Only pass the props if they are implicitly present
         // Needed to get rid of Astro's strict TS settings https://www.typescriptlang.org/tsconfig#exactOptionalPropertyTypes
         ...(maxBounds ? { maxBounds } : {}),
         ...(minZoom ? { minZoom } : {}),
         ...(maxZoom ? { maxZoom } : {}),
       }}
-      interactiveLayerIds={interactiveLayerIdsByGroup[params?.anzeige] || []}
+      interactiveLayerIds={interactiveLayerIdsByGroup[params?.mode] || []}
     >
       <MapSourceCqi />
       <NavigationControl showCompass={false} position="top-right" />

@@ -17,7 +17,7 @@ export const MapInspectorPrimaryInformation = ({ properties }: Props) => {
     return null
   }
 
-  if (params.anzeige === 'cqi') {
+  if (params.mode === 'cqi') {
     // Der index berechnet sich aus base_index (Basisindex entsprechend des Wegetyps) * fac_1 (Faktor für Breite und Oberfläche) * fac_2 (Faktor für Straßenklasse und Höchstgeschwindigkeit) * fac_3 (Faktor für Physische Trennung und Sicherheitsabstand, derzeit nicht implementiert und daher immer 1) * fac_4 (Sonstige auf- oder abwertende Umgebungsvariablen). Die einzelnen Faktoren wiederum basieren insbesondere auf den proc_*-Werten, also fac_1 z.B. auf proc_width und proc_surface. Da steckt aber viel Vodoo und Gewichtungen dahinter, daher ist mMn eigentlich höchstens die Anzeige der fac_1..4 sinnvoll.
     const color = legendCqi
       .find((group) => group.primary)
@@ -35,7 +35,7 @@ export const MapInspectorPrimaryInformation = ({ properties }: Props) => {
     )
   }
 
-  if (params.anzeige === 'lts') {
+  if (params.mode === 'lts') {
     const displayLevels = [1, 2, 3, 4]
     return (
       <div className="my-2 flex justify-center gap-1">
@@ -67,7 +67,7 @@ export const MapInspectorPrimaryInformation = ({ properties }: Props) => {
     )
   }
 
-  if (params.anzeige === 'incompleteness') {
+  if (params.mode === 'incompleteness') {
     return (
       <div className="my-1 flex rounded bg-gray-950 p-2 text-base">
         {!properties.data_missing && <>Keine</>}

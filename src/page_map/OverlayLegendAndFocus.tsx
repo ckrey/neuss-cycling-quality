@@ -8,7 +8,7 @@ import { $focus, type SearchParamsCqiMap } from './storeCqi'
 export const OverlayLegendAndFocus = () => {
   const params = useStore($searchParams) as SearchParamsCqiMap
   const focus = useStore($focus)
-  const curentLegendGroup = legendByGroups[params?.anzeige ?? 'cqi']
+  const curentLegendGroup = legendByGroups[params?.mode ?? 'cqi']
 
   // const map = useMap()
   // console.log(map.current?.getStyle())
@@ -40,7 +40,7 @@ export const OverlayLegendAndFocus = () => {
           <Disclosure.Panel>
             {curentLegendGroup.map((legendGroup) => {
               return (
-                <div key={`${params.anzeige}-${legendGroup.title}`}>
+                <div key={`${params.mode}-${legendGroup.title}`}>
                   <h2 className={legendGroup.primary ? 'sr-only' : 'px-2 pb-2 text-sm'}>
                     {legendGroup.title}
                   </h2>

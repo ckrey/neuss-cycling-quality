@@ -50,7 +50,7 @@ export const layersSelected = [
 ]
 
 export const layerSelection: {
-  key: SearchParamsCqiMap['anzeige']
+  key: SearchParamsCqiMap['mode']
   name: string
   description: null | string
 }[] = [
@@ -59,7 +59,7 @@ export const layerSelection: {
   { key: 'incompleteness', name: 'Datenlücken', description: null },
 ]
 
-export const layerByGroups: Record<SearchParamsCqiMap['anzeige'], Record<string, any>[]> = {
+export const layerByGroups: Record<SearchParamsCqiMap['mode'], Record<string, any>[]> = {
   cqi: layersCqi,
   lts: layersLts,
   incompleteness: layersIncompletness,
@@ -78,7 +78,7 @@ type Legend = {
   filterConfig: null | FilterConfig
 }
 
-export const legendByGroups: Record<SearchParamsCqiMap['anzeige'], LegendGroup[]> = {
+export const legendByGroups: Record<SearchParamsCqiMap['mode'], LegendGroup[]> = {
   cqi: legendCqi,
   lts: legendLts,
   incompleteness: legendIncompletness,
