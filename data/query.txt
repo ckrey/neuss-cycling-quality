@@ -1,0 +1,43 @@
+[out:json][timeout:25];
+area(id:3600109166)->.searchArea;
+(
+  way["highway"="cycleway"](area.searchArea);
+  way["highway"="path"]["bicycle"!="no"]["bicycle"!="dismount"](area.searchArea);
+  way["highway"="footway"]["bicycle"="yes"](area.searchArea);
+  way["highway"="footway"]["bicycle"="designated"](area.searchArea);
+  way["highway"="footway"]["bicycle"="permissive"](area.searchArea);
+  way["highway"="bridleway"]["bicycle"="yes"](area.searchArea);
+  way["highway"="bridleway"]["bicycle"="designated"](area.searchArea);
+  way["highway"="bridleway"]["bicycle"="permissive"](area.searchArea);
+  way["highway"="steps"]["bicycle"="yes"](area.searchArea);
+  way["highway"="steps"]["bicycle"="designated"](area.searchArea);
+  way["highway"="steps"]["bicycle"="permissive"](area.searchArea);
+
+  way["highway"="motorway"](area.searchArea);
+  way["highway"="motorway_link"](area.searchArea);
+  way["highway"="trunk"](area.searchArea);
+  way["highway"="trunk_link"](area.searchArea);
+
+  way["highway"="primary"](area.searchArea);
+  way["highway"="primary_link"](area.searchArea);
+  way["highway"="secondary"](area.searchArea);
+  way["highway"="secondary_link"](area.searchArea);
+  way["highway"="tertiary"](area.searchArea);
+  way["highway"="tertiary_link"](area.searchArea);
+  way["highway"="unclassified"](area.searchArea);
+  way["highway"="residential"](area.searchArea);
+  way["highway"="living_street"](area.searchArea);
+  way["highway"="pedestrian"](area.searchArea);
+  way["highway"="road"](area.searchArea);
+
+  way["highway"="service"][!"service"](area.searchArea);
+  way["highway"="service"]["service"="alley"](area.searchArea);
+  way["highway"="service"]["bicycle"="yes"](area.searchArea);
+  way["highway"="service"]["bicycle"="designated"](area.searchArea);
+  way["highway"="service"]["bicycle"="permissive"](area.searchArea);
+  way["highway"="track"](area.searchArea);
+);
+// print results
+out body;
+>;
+out skel qt;
