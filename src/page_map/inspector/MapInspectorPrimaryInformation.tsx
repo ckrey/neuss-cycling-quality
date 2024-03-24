@@ -1,4 +1,4 @@
-import { $searchParams } from '@components/BaseMap/store'
+import { $searchParams } from '../../BaseMap/store'
 import { useStore } from '@nanostores/react'
 import { twJoin } from 'tailwind-merge'
 import { legendCqi } from '../layers/layersCqi'

@@ -1,4 +1,4 @@
-import { $clickedMapData } from '@components/BaseMap/store'
+import { $clickedMapData } from '../BaseMap/store'
 import { useStore } from '@nanostores/react'
 import { MapInspectorPrimaryInformation } from './inspector/MapInspectorPrimaryInformation'
 import {

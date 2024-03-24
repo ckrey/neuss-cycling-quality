@@ -1,4 +1,4 @@
-import { $searchParams } from '@components/BaseMap/store'
+import { $searchParams } from '../BaseMap/store'
 import { Disclosure } from '@headlessui/react'
 import { useStore } from '@nanostores/react'
 import { twJoin } from 'tailwind-merge'

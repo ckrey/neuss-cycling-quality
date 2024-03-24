@@ -1,4 +1,4 @@
-import type { SearchParamBaseMap } from '@components/BaseMap/store'
+import type { SearchParamBaseMap } from '../BaseMap/store'
 import { atom } from 'nanostores'
 import type { FilterConfig } from './layers/layers'
 

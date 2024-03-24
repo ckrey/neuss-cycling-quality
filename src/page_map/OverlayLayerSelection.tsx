@@ -1,4 +1,4 @@
-import { $searchParams } from '@components/BaseMap/store'
+import { $searchParams } from '../BaseMap/store'
 import { RadioGroup } from '@headlessui/react'
 import { useStore } from '@nanostores/react'
 import { useEffect, useState } from 'react'

@@ -1,4 +1,4 @@
-import { cleanupMapboxLayerJson } from '../../../BaseMap/utils/cleanupMapboxLayerJson'
+import { cleanupMapboxLayerJson } from '../../BaseMap/utils/cleanupMapboxLayerJson'
 import type { LegendGroup } from './layers'
 
 export const layersLts = [

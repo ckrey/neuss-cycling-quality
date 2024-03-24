@@ -65,7 +65,7 @@ export const BaseMap = ({ initialViewState, interactiveLayerIds, boxZoom, childr
         longitude: latLngZoom.longitude || initialViewState.longitude,
       }}
       // Style: https://cloud.maptiler.com/maps/dataviz/
-      mapStyle="https://api.maptiler.com/maps/dataviz/style.json?key=ur6Yh3ULc6QjatOYBgln"
+      mapStyle="https://api.maptiler.com/maps/dataviz/style.json?key=0opClOQz7xpg46NzNSOo"
       style={{ width: '100%', height: '100%' }}
       boxZoom={boxZoom || true}
       // hash
