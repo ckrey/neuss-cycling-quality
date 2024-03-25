@@ -5,7 +5,7 @@ import { Layer, Source } from 'react-map-gl/maplibre'
 import { wrapFilterWithAll } from '../BaseMap/utils/wrapFilterWithAll'
 import { layerByGroups, layersSelected } from './layers/layers'
 import { $focus, type SearchParamsCqiMap } from './storeCqi'
-import {default as dataTiles}  from "../assets/data.pmtiles";
+import {default as dataTiles}  from '../assets/data.pmtiles';
 export const MapSourceCqi = () => {
   const params = useStore($searchParams) as SearchParamsCqiMap
   const focus = useStore($focus)
