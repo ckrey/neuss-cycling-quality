@@ -64,7 +64,7 @@ export const BaseMap = ({ initialViewState, interactiveLayerIds, boxZoom, childr
     setParamsMap(initialViewState)
   }, [])
 
-  const rasterAttribution='Data: © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>, <a href="http://viewfinderpanoramas.org/">SRTM</a>, <a href="https://portal.opentopography.org/datasetMetadata?otCollectionID=OT.032021.4326.2">NASADEM</a>, <a href="https://worldcover2021.esa.int">ESA WorldCover</a>; Maps © <a href="https://www.tracestrack.com/">Tracestrack</a>'
+  const rasterAttribution='Daten © <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</code>-Mitwirkende (<a href="https://opendatacommons.org/licenses/odbl/index.html">ODbL</a>), <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, <a href="https://openstreetmap.org/fixthemap">mitmachen/Fehler melden</a>'
   const latLngZoom = baseMapSearchparamsParse(params.map)
 
   return (
@@ -93,7 +93,7 @@ export const BaseMap = ({ initialViewState, interactiveLayerIds, boxZoom, childr
       >
         <Source
             type="raster"
-            tiles={['https://maps.lw1.at/tiles/1.0.0/tracestack/webmercator_hq/{z}/{x}/{y}.png']}
+            tiles={['https://tile.openstreetmap.de/{z}/{x}/{y}.png']}
             tileSize={512}
             attribution={rasterAttribution}
         >
