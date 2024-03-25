@@ -22,16 +22,16 @@ export const MapInfo = () => {
                     e.stopPropagation();
                 }}
                 className="text-base z-50 overflow-y-auto rounded-lg bg-white border border-emerald-200 p-4 shadow-xl sm:inset-x-auto sm:inset-y-10 sm:right-5 sm:w-1/2">
-                <h1 className="text-center">Cycling Quality Index<br/>Wien</h1>
+                <h1 className="text-center">Cycling Quality Index<br/>Neuss</h1>
                 <p>
-                    Ein Radverkehrs-Qualitätsindex für Wien basierend auf
+                    Ein Radverkehrs-Qualitätsindex für Neuss basierend auf
                     <a href="https://www.openstreetmap.org/" target="_blank"> OSM</a>-Daten.
                 </p>
                 <p>Der Code für die Analyse und Visualisierung stammt vom
                     <a href="https://www.osm-verkehrswende.org/cqi/" target="_blank"> www.osm-verkehrswende.org</a>-Team
-                    und wurde von
-                    mir nur
-                    <a href="https://github.com/Findus23/vienna-cycling-quality" target="_blank"> für Wien adaptiert</a>.
+                    sowie vereinfacht von <a href="https://github.com/Findus23/vienna-cycling-quality" target="_blank"> Findus23 </a>
+                    und wurde von mir nur
+                    <a href="https://github.com/ckrey/neuss-cycling-quality" target="_blank"> für Neuss adaptiert</a>.
                     Weitere Informationen zur Methodik findet man auch auf der
                     <a href="https://www.osm-verkehrswende.org/cqi/" target="_blank"> osm-verkehrswende-Webseite </a>
                     oder im <a
@@ -45,10 +45,7 @@ export const MapInfo = () => {
                     gibt es Informationen, wie man zu den Daten beitragen kann.
                 </p>
                 <p>
-                    Über mich: <a href="https://lw1.at">lw1.at</a>
-                </p>
-                <p>
-                    Impressum: <a href="https://lw1.at/de/impressum/">lw1.at/de/impressum</a>
+                    Über mich: <a href="https://ckrey.de">ckrey.de</a>
                 </p>
             </section>
         </div>
