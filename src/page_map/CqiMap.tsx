@@ -56,9 +56,9 @@ export const CqiMap = ({ maxBounds, minZoom, maxZoom }: Props) => {
     return (
         <BaseMap
             initialViewState={{
-                longitude: 6.562976,
-                latitude: 51.117101,
-                zoom: 12,
+                longitude: 6.688,
+                latitude: 51.172,
+                zoom: 11.5,
                 // Only pass the props if they are implicitly present
                 // Needed to get rid of Astro's strict TS settings https://www.typescriptlang.org/tsconfig#exactOptionalPropertyTypes
                 ...(maxBounds ? { maxBounds } : {}),

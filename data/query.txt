@@ -1,41 +1,41 @@
-[out:json][timeout:25];
-area(id:3600109166)->.searchArea;
+[out:json]
+[bbox:51.11623926997107,6.612394570724646,51.228387892306834,6.800191520857878];
 (
-  way["highway"="cycleway"](area.searchArea);
-  way["highway"="path"]["bicycle"!="no"]["bicycle"!="dismount"](area.searchArea);
-  way["highway"="footway"]["bicycle"="yes"](area.searchArea);
-  way["highway"="footway"]["bicycle"="designated"](area.searchArea);
-  way["highway"="footway"]["bicycle"="permissive"](area.searchArea);
-  way["highway"="bridleway"]["bicycle"="yes"](area.searchArea);
-  way["highway"="bridleway"]["bicycle"="designated"](area.searchArea);
-  way["highway"="bridleway"]["bicycle"="permissive"](area.searchArea);
-  way["highway"="steps"]["bicycle"="yes"](area.searchArea);
-  way["highway"="steps"]["bicycle"="designated"](area.searchArea);
-  way["highway"="steps"]["bicycle"="permissive"](area.searchArea);
+  way["highway"="cycleway"];
+  way["highway"="path"]["bicycle"!="no"]["bicycle"!="dismount"];
+  way["highway"="footway"]["bicycle"="yes"];
+  way["highway"="footway"]["bicycle"="designated"];
+  way["highway"="footway"]["bicycle"="permissive"];
+  way["highway"="bridleway"]["bicycle"="yes"];
+  way["highway"="bridleway"]["bicycle"="designated"];
+  way["highway"="bridleway"]["bicycle"="permissive"];
+  way["highway"="steps"]["bicycle"="yes"];
+  way["highway"="steps"]["bicycle"="designated"];
+  way["highway"="steps"]["bicycle"="permissive"];
 
-  way["highway"="motorway"](area.searchArea);
-  way["highway"="motorway_link"](area.searchArea);
-  way["highway"="trunk"](area.searchArea);
-  way["highway"="trunk_link"](area.searchArea);
+  way["highway"="motorway"];
+  way["highway"="motorway_link"];
+  way["highway"="trunk"];
+  way["highway"="trunk_link"];
 
-  way["highway"="primary"](area.searchArea);
-  way["highway"="primary_link"](area.searchArea);
-  way["highway"="secondary"](area.searchArea);
-  way["highway"="secondary_link"](area.searchArea);
-  way["highway"="tertiary"](area.searchArea);
-  way["highway"="tertiary_link"](area.searchArea);
-  way["highway"="unclassified"](area.searchArea);
-  way["highway"="residential"](area.searchArea);
-  way["highway"="living_street"](area.searchArea);
-  way["highway"="pedestrian"](area.searchArea);
-  way["highway"="road"](area.searchArea);
+  way["highway"="primary"];
+  way["highway"="primary_link"];
+  way["highway"="secondary"];
+  way["highway"="secondary_link"];
+  way["highway"="tertiary"];
+  way["highway"="tertiary_link"];
+  way["highway"="unclassified"];
+  way["highway"="residential"];
+  way["highway"="living_street"];
+  way["highway"="pedestrian"];
+  way["highway"="road"];
 
-  way["highway"="service"][!"service"](area.searchArea);
-  way["highway"="service"]["service"="alley"](area.searchArea);
-  way["highway"="service"]["bicycle"="yes"](area.searchArea);
-  way["highway"="service"]["bicycle"="designated"](area.searchArea);
-  way["highway"="service"]["bicycle"="permissive"](area.searchArea);
-  way["highway"="track"](area.searchArea);
+  way["highway"="service"][!"service"];
+  way["highway"="service"]["service"="alley"];
+  way["highway"="service"]["bicycle"="yes"];
+  way["highway"="service"]["bicycle"="designated"];
+  way["highway"="service"]["bicycle"="permissive"];
+  way["highway"="track"];
 );
 // print results
 out body;
