@@ -1,5 +1,4 @@
 import type { BaseMapSearchparams } from '../BaseMap/store'
-import type { FilterConfig } from './layers/layers'
 
 export const validAnzeigeValues = [
   'cqi',
@@ -7,28 +6,16 @@ export const validAnzeigeValues = [
   'incompleteness',
 ] as const
 
-export type SearchParamsCqiMap = BaseMapSearchparams & {
+export type CqiMapSearchparams = BaseMapSearchparams & {
   mode: (typeof validAnzeigeValues)[number]
   filters?: string
 }
 
-// TODO: I think we can remove the filterConfig part.
-// TODO: I think we can remove the groupKey from the filterConfig object
-type Props =
-    | {
-  filterConfig: FilterConfig
-  groupKey?: never
-  legendKey?: never
-}
-    | {
-  filterConfig?: never
+type Props = {
   groupKey: string
   legendKey: string
 }
-export const filterParamsKey = ({ filterConfig, groupKey, legendKey }: Props) => {
-  if (filterConfig) {
-    return [filterConfig.groupKey, filterConfig.key].join('-')
-  }
+export const filterParamsKey = ({ groupKey, legendKey }: Props) => {
   return [groupKey, legendKey].join('-')
 }
 
@@ -48,7 +35,7 @@ export const filterParamsStringify = (filters: undefined | (undefined | string)[
   return sort?.join(',')
 }
 
-export const filterParamsObject = (filterParam: SearchParamsCqiMap['filters']) => {
+export const filterParamsObject = (filterParam: CqiMapSearchparams['filters']) => {
   if (!filterParam) return undefined
   return filterParam.split(',')
 }

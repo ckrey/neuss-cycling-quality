@@ -3,19 +3,22 @@ import { RadioGroup } from '@headlessui/react'
 import { useStore } from '@nanostores/react'
 import { useEffect, useState } from 'react'
 import { twJoin } from 'tailwind-merge'
-import { layerSelection } from './layers/layers'
-import { type SearchParamsCqiMap } from './storeCqi'
+import { layerSelection, legendByGroups } from './layers/layers'
+import { type CqiMapSearchparams } from './storeCqi'
+import { defaultFilterByGroup, paramsWithDefaultFilters } from './utils/filterUtils'
 
 export const OverlayLayerSelection = () => {
-  const params = useStore($searchParams)
+  const params = useStore($searchParams) as CqiMapSearchparams
   // TODO: I really don't get why we need this but something prevents the rerendering of the buttons so the active state is wrong. Did not find any AstroJS Docs on this. And we are doing what we are supposed to do with nanostores.
-  const [localSelected, setLocalSelected] = useState<SearchParamsCqiMap['mode']>('cqi')
+  const [localSelected, setLocalSelected] = useState<CqiMapSearchparams['mode']>('cqi')
 
-  const setSelected = (value: string) => {
-    delete params.filter
+  const setSelected = (value: CqiMapSearchparams['mode']) => {
     params.mode = value
-    $searchParams.open(params)
-    setLocalSelected(value as SearchParamsCqiMap['mode'])
+    const curentLegendGroup = legendByGroups[params?.mode ?? 'cqi']
+    const defaultFilters = defaultFilterByGroup(curentLegendGroup)
+    const newParams = paramsWithDefaultFilters(defaultFilters, params)
+    $searchParams.open(newParams)
+    setLocalSelected(value)
   }
 
   // Initialize URL with filter=none
@@ -23,7 +26,7 @@ export const OverlayLayerSelection = () => {
     setSelected(params.mode || 'cqi')
   }, [])
 
-  const handleChange = (value: SearchParamsCqiMap['mode']) => {
+  const handleChange = (value: CqiMapSearchparams['mode']) => {
     setSelected(value)
   }
 

@@ -143,32 +143,46 @@ export const layersLts = [
 export const legendLts: LegendGroup[] = [
   {
     title: 'Hauptkategorie',
-    key: 'main',
+    key: 'lts',
     primary: true,
     legends: [
       {
-        key: 'stress_level_1',
+        key: 'l1',
         color: '#4589fc',
         label: 'LTS 1 (Kindertauglich)',
-        filterConfig: { groupKey: 'main', key: 'stress_level', values: [1] },
+        filterConfig: { key: 'stress_level', values: [1] },
       },
       {
-        key: 'stress_level_2',
+        key: 'l2',
         color: '#a7c878',
         label: 'LTS 2 (Niedriger Stress)',
-        filterConfig: { groupKey: 'main', key: 'stress_level', values: [2] },
+        filterConfig: { key: 'stress_level', values: [2] },
       },
       {
-        key: 'stress_level_3',
+        key: 'l3',
         color: '#ffcf23',
         label: 'LTS 3 (Mittlerer Stress)',
-        filterConfig: { groupKey: 'main', key: 'stress_level', values: [3] },
+        filterConfig: { key: 'stress_level', values: [3] },
       },
       {
-        key: 'stress_level_4',
+        key: 'l4',
         color: '#ab1b04',
         label: 'LTS 4 (Kampfradler, hoher Stress)',
-        filterConfig: { groupKey: 'main', key: 'stress_level', values: [4] },
+        filterConfig: { key: 'stress_level', values: [4] },
+      },
+    ],
+  },
+  {
+    title: 'Nutzbarkeit',
+    key: 'usable',
+    primary: false,
+    legends: [
+      {
+        key: 'yes',
+        color: 'gray',
+        label: 'Nur nutzbare anzeigen',
+        filterConfig: { key: 'filter_usable', values: [1] },
+        defaultOn: true,
       },
     ],
   },

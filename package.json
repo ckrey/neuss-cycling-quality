@@ -12,7 +12,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@nanostores/react": "^0.7.2",
-    "@nanostores/router": "^0.13.0",
+    "@nanostores/router": "^0.14.1",
     "@turf/turf": "^7.0.0-alpha.114",
     "maplibre-gl": "^4.1.1",
     "matomo-lite-tracker": "github:Findus23/MatomoLiteTracker",
