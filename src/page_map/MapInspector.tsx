@@ -37,6 +37,13 @@ export const MapInspector = () => {
       </button>
 
       {clickedMapData.map((feature) => {
+        const feature_pretty_dict = Object.fromEntries(Object.entries(feature.properties).map(([k, v]) => {
+              if (["data_missing", "data_malus", "data_bonus"].includes(k)) {
+                v = v.split(";").filter((o: string) => o)
+              }
+              return [k, v]
+            })
+        )
         return (
           <div key={`${feature.properties.id}/${feature.properties.side}`} className="mt-8">
             <h2 className="text-lg">{feature.properties.name || feature.properties.id}</h2>
@@ -95,7 +102,7 @@ export const MapInspector = () => {
             </table>
               <details>
                   <summary className="text-lg">Rohdaten</summary>
-                  <pre>{JSON.stringify(feature.properties, null, 2)}</pre>
+                  <pre>{JSON.stringify(feature_pretty_dict, null, 2)}</pre>
               </details>
           </div>
         )
