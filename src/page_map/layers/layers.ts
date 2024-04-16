@@ -1,5 +1,5 @@
 import { cleanupMapboxLayerJson } from '../../BaseMap/utils/cleanupMapboxLayerJson'
-import type { SearchParamsCqiMap } from '../storeCqi'
+import type { CqiMapSearchparams } from '../storeCqi'
 import { layersCqi, legendCqi } from './layersCqi'
 import { layersIncompletness, legendIncompletness } from './layersIncompletness'
 import { layersLts, legendLts } from './layersLts'
@@ -50,7 +50,7 @@ export const layersSelected = [
 ]
 
 export const layerSelection: {
-  key: SearchParamsCqiMap['mode']
+  key: CqiMapSearchparams['mode']
   name: string
   description: null | string
 }[] = [
@@ -59,7 +59,7 @@ export const layerSelection: {
   { key: 'incompleteness', name: 'Datenlücken', description: null },
 ]
 
-export const layerByGroups: Record<SearchParamsCqiMap['mode'], Record<string, any>[]> = {
+export const layerByGroups: Record<CqiMapSearchparams['mode'], Record<string, any>[]> = {
   cqi: layersCqi,
   lts: layersLts,
   incompleteness: layersIncompletness,
@@ -70,15 +70,22 @@ export type FilterConfig = {
   values: (string | number)[]
 }
 
-export type LegendGroup = { title: string; primary?: boolean; legends: Legend[] }
-type Legend = {
+export type LegendGroup = {
+  title: string
+  key: string
+  primary?: boolean
+  legends: Legend[]
+}
+
+export type Legend = {
   key: string
   color: string
   label: string
   filterConfig: null | FilterConfig
+  defaultOn?: true
 }
 
-export const legendByGroups: Record<SearchParamsCqiMap['mode'], LegendGroup[]> = {
+export const legendByGroups: Record<CqiMapSearchparams['mode'], LegendGroup[]> = {
   cqi: legendCqi,
   lts: legendLts,
   incompleteness: legendIncompletness,
