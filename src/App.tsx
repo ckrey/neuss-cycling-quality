@@ -22,7 +22,7 @@ function App() {
         <>
             <CqiMap maxBounds={neussbbox as LngLatBoundsLike} minZoom={minZoom}/>
             <div className="absolute bottom-3 left-3 rounded bg-white/80 px-1 py-0.5 text-xs">
-                Datenstand: 25.03.2024
+                Datenstand: 16.04.2024
             </div>
 
         </>
